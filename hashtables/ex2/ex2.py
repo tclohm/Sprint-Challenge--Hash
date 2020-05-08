@@ -6,9 +6,35 @@ class Ticket:
 
 
 def reconstruct_trip(tickets, length):
-    
-    """
-    YOUR CODE HERE
-    """
 
-    return route
+	"""
+	YOUR CODE HERE
+
+	source string represents 
+	starting point, source = None
+	end point, destination = None
+	"""
+	cache = {}
+	route = [None] * length
+
+	for ticket in tickets:
+		cache[ticket.source] = ticket.destination
+
+	current = 'NONE'
+
+	for index in range(length):
+		route[index] = cache[current]
+		current = cache[current]
+
+
+	return route
+
+
+# ticket_1 = Ticket("NONE", "PDX")
+# ticket_2 = Ticket("PDX", "DCA")
+# ticket_3 = Ticket("DCA", "NONE")
+
+# tickets = [ticket_1, ticket_2, ticket_3]
+
+# expected = ["PDX", "DCA", "NONE"]
+# print(reconstruct_trip(tickets, 3))
