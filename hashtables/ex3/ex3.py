@@ -14,6 +14,7 @@ def intersection(arrays):
 				cache[number] += 1
 			if cache[number] == len(arrays):
 				result.append(number)
+
 	return result
 
 
